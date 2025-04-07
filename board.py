@@ -3,7 +3,14 @@ def get_empty_board():
     Should return a list with 3 sublists.
     Each sublist should contain 3 time the "." character
     '''
-    pass
+
+    board = ["-", "-", "-",
+            "-", "-", "-",
+            "-", "-", "-"]
+
+    currentplayer = "X"
+    gamerunning = True
+    winner = None
 
 
 def display_board(board):
@@ -17,7 +24,11 @@ def display_board(board):
     C   0 | X | . 
        --+---+---
   """
-  pass
+  print(board[0] + " I " + board[1] + " I " + board[2])
+  print("----------------")
+  print(board[3] + " I " + board[4] + " I " + board[5])
+  print("----------------")
+  print(board[6] + " I " + board[7] + " I " + board[8])
 
 
 def is_board_full(board):
@@ -33,8 +44,10 @@ def get_winning_player(board):
   Should return the player that wins based on the tic tac toe rules.
   If no player has won, than "None" is returned.
   """
-  pass
-
+  global winner
+  if board[0] == board[1] == board[2] and board[1] != "-":
+    winner = board[0]
+    return True
 
 # run this file to test whether you have correctly implemented the functions
 if __name__ == "__main__":
@@ -106,3 +119,4 @@ if __name__ == "__main__":
     ]
     print("Should return None")
     print(get_winning_player(board_6))
+    
